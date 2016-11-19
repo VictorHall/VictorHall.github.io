@@ -71,7 +71,7 @@
         <img class="first-slide" src="images/main-slide.png" alt="First slide">
         <div class="container">
           <div class="carousel-caption">
-            <h1>Studies Associates of Science (AS) in Information Technology</h1>
+            <h1>Studies at
             <p>Montgomery County Community College</p>
           </div>
         </div>
@@ -135,6 +135,20 @@
         </div>
     </div>
     <div id="result" class="row"></div>
+    <!-- Displays analysis -->
+    <!--<div ng-repeat="x in analysis">
+    <h3>Example heading <span class="label label-default">{{x.name}}</span></h3>
+    </div>   ng-repeat="x in vm.print" -->
+ 
+
+  <!-- List group -->
+  <ul class="list-group text-center " ng-repeat="x in vm.analysis">  
+    <div>Clarifai is...</div>
+    <li class="list-group-item">{{x.value}} confident that this is a {{x.name}}
+    </li>
+  </ul>
+</div>
+
 </main>
    
 

@@ -66,6 +66,8 @@
       vm.counter = 3;
       vm.init = init;
       vm.destroy = destroy;
+   
+      
       /**
        *  @ngdoc listener
        *  @name ngWebcam_capture
@@ -192,9 +194,11 @@
         }
         Webcam.snap(function(data_uri) {
           images[index] = data_uri;
+       
           if(index < (vm.config.shots-1) && angular.isDefined(vm.onCaptureProgress)) {
             var progress = Math.round(((index+1) * 100) / vm.config.shots);
             vm.onCaptureProgress({src: data_uri,progress: progress});
+
           }
           if(index === (vm.config.shots-1) && angular.isDefined(vm.onCaptureComplete)) {
             return vm.onCaptureComplete({src: images});
