@@ -143,8 +143,7 @@
 
   <!-- List group -->
   <ul class="list-group text-center " ng-repeat="x in vm.analysis">  
-    <div>Clarifai is...</div>
-    <li class="list-group-item">{{x.value}} confident that this is a {{x.name}}
+    <li class="list-group-item">Clarifai is {{100 * x.value | number:2}}% confident this could be {{x.name}}
     </li>
   </ul>
 </div>
