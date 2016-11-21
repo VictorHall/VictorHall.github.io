@@ -1,5 +1,12 @@
+html,
 body {
-    background-color: #BBB;
+  height: 100%;
+  background-color: #333;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 main {
     margin-top: 32px;

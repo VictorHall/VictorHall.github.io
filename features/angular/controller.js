@@ -4,6 +4,11 @@
   function webcamController($scope, $log) {
     /* jshint validthis: true */
     var vm = this;
+    //Hides loading text
+    vm.loading = false;
+    //Displays if the request fails
+    vm.failed = false;
+
     
     vm.config = {
       delay: 0,
@@ -29,6 +34,8 @@
       img.width = 240;
       img.height = 180;
       el.appendChild(img);
+      //Dispalys loading text
+      vm.loading = true;
       //Sends image uri to analyze for analysis
       vm.analyze(src);
     };
@@ -78,17 +85,18 @@
           'lvhKWZx9bMY1L0OMVmo9bMr9A9_PyCRgmP2FGvEJ'
         );
 
+        
+
         // predict the contents of an image by passing in a url
         app.models.predict(Clarifai.GENERAL_MODEL, {base64: uri}).then(
         function(response) {
-       
+        //hides loading text  
+        vm.loading = false;
         //str returns a string
         var str = response.request.response;
          //converting string to json
         var json = JSON.parse(str);
-        //returns result
-        console.log(json.outputs[0].data.concepts);
-        
+        //Passes result to the view
         vm.analysis = json.outputs[0].data.concepts;
          //Without $scope.$apply();, angular will not recognize
          //since it's not an Angular lib, so it probably just doesn't run the digest cycle automatically for you in the promise resolve (.then() callback)
@@ -97,7 +105,11 @@
           function(err) {
           console.error(err);
           //Prints out error message
-          vm.analysis = "Opps, something went wrong :(\n" + err;
+          vm.loading = false;
+          //Shows error text
+          vm.failed = true;
+  
+          vm.error = "Opps, something went wrong :( "  + err;
           $scope.$apply();
         }
         );
