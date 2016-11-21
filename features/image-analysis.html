@@ -25,8 +25,15 @@
 
 <body ng-app="webcam">
 
+<div class="text-center">
+ <h3 >Image Analysis</h3>
+<em >Try it out ! Take a picture of an object that you would like to identify.</em>
+<br>
+<em class="update">*Front facing camera can only be used at this time. The next update will provide the option to use both the front and rear camera.</em>
+</div>
 
   <main class="app container" ng-controller="webcamController as vm">
+
     <div class="row">
         <div class="col-md-12" style="text-align: center">
             <ng-webcam config="vm.config"
@@ -48,7 +55,7 @@
     <div id="result" class="row"></div>
     <!-- Displays analysis --> 
 
-      <div ng-show="vm.loading"><h2>Processing Analysis....</h2></div>
+      <div ng-show="vm.loading"><h2>Analyzing ...</h2></div>
 
 
   <!-- List group -->
