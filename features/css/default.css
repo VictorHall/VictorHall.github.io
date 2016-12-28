@@ -7,3 +7,12 @@
 	font-size: 12px;
 }
 
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #337ab7 !important;
+}
+
+
+.nav>li>a {
+    padding: 14px 19px !important;
+}
+
