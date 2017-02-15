@@ -1,0 +1,18 @@
+/**css over-ride**/
+body{
+	background-color: #333 !important;
+}
+
+/**add class**/
+.font{
+	color: white;
+}
+
+.image{
+	border: 2px solid;
+    border-radius: 25px;
+}
+
+.blog{
+	color: #777;
+}

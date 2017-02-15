@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Feature - Image Analysis</title>
-  <meta name="description" content="The HTML5 Herald">
+  <title>Computing</title>
+  <meta name="description">
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -15,28 +15,37 @@
   <![endif]-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
 
   <!--Styling for camera feature -->
   <link rel="stylesheet" href="css/style.css">
+
+
   <!-- Stying for api response -->
   <link rel="stylesheet" href="css/default.css">
 
+
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+
+
 
 </head>
 
 <body ng-app="webcam">
 
 
-   <div>  
-<nav class="navbar navbar-inverse">
-  <ul class="nav nav-pills">
-  <li role="presentation" class="text-center"><a href="\index.html">Home</a></li>
-</ul>
-</nav>
-
-<div>
+ 
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="\index.html">Home</a></li>
+            <li role="presentation"><a href="\design/index.html">Design</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Computing</h3>
+      </div>
 
 
     
@@ -64,25 +73,26 @@
                        on-capture-complete="vm.onCaptureComplete(src)"></ng-webcam>
         </div>
         <div class="col-md-12">
-            <p id="progress">Progress: {{vm.progress}}%</p>
+            <!-- <p id="progress">Progress: {{vm.progress}}%</p> -->
         </div>
-        <div class="col-md-12 buttons" ng-if="vm.showButtons">
+        <div class="col-md-12 buttons clearfix text-center" ng-if="vm.showButtons">
             <button class="btn btn-primary" type="button" ng-disabled="!vm.captureButtonEnable" ng-click="vm.capture()">Capture</button>
             <button class="btn btn-primary" type="button" ng-click="vm.off()">Camera off</button>
             <button class="btn btn-primary" type="button" ng-click="vm.on()">Camera On</button>
         </div>
     </div>
-    <div id="result" class="row"></div>
+    <br></br>
+    <div id="result" class=" text-center row"></div>
     <!-- Displays analysis --> 
 
-      <div ng-show="vm.loading"><h2>Analyzing ...</h2></div>
+      <div  class="text-center" ng-show="vm.loading"><h2>Analyzing ...</h2></div>
 
 
   <!-- List group -->
   <ul class="list-group text-center row" ng-repeat="x in vm.analysis">  
 
     <div class="col-md-4"></div>
-      <li class="list-group-item alert col-md-4 alert-info" role="alert">Clarifai is {{100 * x.value | number:2}}% confident to discribe this image as/a {{x.name}}
+      <li class="list-group-item alert col-md-4 alert-info" role="alert">Clarifai is {{100 * x.value | number:2}}% confident that this image contains a {{x.name}}
       </li>
     <div class="col-md-4"></div>
   </ul>
